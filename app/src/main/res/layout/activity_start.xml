@@ -22,8 +22,10 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="388dp"
+
+        android:layout_marginTop="464dp"
         android:fontFamily="@font/poor_story"
+        android:gravity="center"
         android:text="Your career journey begins here!!"
         android:textColor="@color/white"
         android:textSize="34sp"
