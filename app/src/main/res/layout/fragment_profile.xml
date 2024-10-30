@@ -55,6 +55,15 @@
             android:layout_height="wrap_content"
             android:text="Edit Profile"
             android:backgroundTint="@color/black" />
+
+        <Button
+            android:id="@+id/postJobButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Post a Job"
+            android:background="@color/black"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="20dp"/>
     </LinearLayout>
 
 </RelativeLayout>

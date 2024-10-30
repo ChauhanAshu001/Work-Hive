@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@color/white"
+    tools:context=".EmployerDashBoard.CompleteProfileActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Complete Your Profile"
+        android:textSize="24sp"
+        android:id="@+id/profileTitle"
+        android:textStyle="bold"
+        android:layout_marginBottom="24dp"
+        android:layout_centerHorizontal="true" /> <!-- Centered horizontally -->
+
+    <EditText
+        android:id="@+id/companyEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Company Name"
+        android:padding="10dp"
+        android:layout_marginBottom="16dp"
+        android:inputType="text"
+        android:layout_below="@id/profileTitle" /> <!-- Added to ensure proper positioning -->
+
+    <Button
+        android:id="@+id/completeButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Complete Profile"
+        android:layout_marginTop="20dp"
+        android:textColor="@android:color/white"
+        android:layout_below="@id/companyEditText" /> <!-- Positioned below EditText -->
+
+</RelativeLayout>

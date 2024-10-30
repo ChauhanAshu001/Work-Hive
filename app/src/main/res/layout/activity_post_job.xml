@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EmployerDashBoard.PostJobActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <EditText
+            android:id="@+id/jobTitleEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Job Title"
+            android:padding="10dp"
+            />
+
+        <EditText
+            android:id="@+id/jobLocationEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Job Location"
+            android:padding="10dp"
+            />
+
+        <EditText
+            android:id="@+id/jobStatusEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Job Status"
+            android:padding="10dp"
+            />
+
+        <EditText
+            android:id="@+id/jobSalaryEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Salary"
+            android:padding="10dp"
+            />
+
+        <EditText
+            android:id="@+id/jobExperienceEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Experience Needed"
+            android:padding="10dp"
+            />
+
+        <Button
+            android:id="@+id/postJobButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Post Job"
+            android:background="@color/black"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="20dp"/>
+    </LinearLayout>
+
+</LinearLayout>
