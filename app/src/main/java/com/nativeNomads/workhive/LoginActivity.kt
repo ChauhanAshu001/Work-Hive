@@ -1,5 +1,7 @@
 package com.nativeNomads.workhive
 
+import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -12,7 +14,6 @@ import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.AuthCredential
-import com.google.firebase.auth.FirebaseUser
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
@@ -25,6 +26,12 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var googleSignInClient: GoogleSignInClient
     private lateinit var auth: FirebaseAuth
     private var userType: String? = null // Class property to store userType
+    lateinit var sharedPreferences: SharedPreferences
+
+
+    companion object {
+        private const val RC_SIGN_IN = 9001
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,21 +45,21 @@ class LoginActivity : AppCompatActivity() {
         }
 
         // Initialize Firebase Auth
-        auth = FirebaseAuth.getInstance()
 
         // Configure Google Sign In
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
             .build()
 
-
         googleSignInClient = GoogleSignIn.getClient(this, gso)
 
+        auth = FirebaseAuth.getInstance()
         // Check if user is already logged in
         val currentUser = auth.currentUser
         if (currentUser != null) {
-            userType = getUserType() // Retrieve stored user type
-            navigateToNextActivity(currentUser)
+
+            navigateToNextActivity(userType)
         }
 
         // Set click listeners for the buttons
@@ -74,8 +81,13 @@ class LoginActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == RC_SIGN_IN) {
-            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
-            handleSignInResult(task)
+            if(resultCode==Activity.RESULT_OK){
+                val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+                handleSignInResult(task)
+            }
+            else if(resultCode==Activity.RESULT_CANCELED){
+                Toast.makeText(applicationContext,"unable to SignIn",Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
@@ -97,38 +109,48 @@ class LoginActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     // Sign in success, navigate to next activity
                     val user = auth.currentUser
-                    user?.let { navigateToNextActivity(it) }
+                    user?.let { navigateToNextActivity(userType) }
                 } else {
                     Toast.makeText(this, "Authentication Failed.", Toast.LENGTH_SHORT).show()
                 }
             }
     }
 
-    private fun navigateToNextActivity(user: FirebaseUser) {
+    private fun navigateToNextActivity(userType: String?) {
         // Check user type and navigate accordingly
         val intent = if (userType == "jobSeeker") {
-            Intent(this, EmployerActivity::class.java) // Use the correct Activity for job seekers
+            Intent(this, EmployerActivity::class.java)
         } else {
-            Intent(this, MainActivity::class.java) // Use the correct Activity for employers
+            Intent(this, MainActivity::class.java)
         }
         startActivity(intent)
         finish()
     }
 
     private fun saveUserType(userType: String) {
-        val sharedPref = getSharedPreferences("user_prefs", MODE_PRIVATE)
-        with(sharedPref.edit()) {
-            putString("user_type", userType)
-            apply()
-        }
+        // Save user type in SharedPreferences or any other persistent storage
+        // Implement logic to store userType
+        sharedPreferences=this.getSharedPreferences("saveUserType", Context.MODE_PRIVATE)
+        val editor=sharedPreferences.edit()
+        editor.putString("key userType",userType)
+        editor.apply()
+        Toast.makeText(applicationContext,"You are saved as  $userType",Toast.LENGTH_SHORT).show()
     }
 
-    private fun getUserType(): String {
-        val sharedPref = getSharedPreferences("user_prefs", MODE_PRIVATE)
-        return sharedPref.getString("user_type", "jobSeeker") ?: "jobSeeker" // Default to "jobSeeker"
+    private fun getUserType() {
+        sharedPreferences=this.getSharedPreferences("saveUserType",Context.MODE_PRIVATE)
+        userType=sharedPreferences.getString("key userType",null)
+
     }
 
-    companion object {
-        private const val RC_SIGN_IN = 9001
+    override fun onPause() {
+        super.onPause()
+        saveUserType(userType.toString())
     }
+
+    override fun onResume() {
+        super.onResume()
+        getUserType()
+    }
+
 }

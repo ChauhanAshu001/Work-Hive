@@ -2,4 +2,6 @@
     <string name="app_name">Work Hive</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="default_web_client_id">476677337565-479epoeojahrqnmu8t3q3gd59m33scvq4.apps.googleusercontent.com.apps.googleusercontent.com</string>
+
 </resources>
