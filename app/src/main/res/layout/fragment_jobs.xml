@@ -14,11 +14,11 @@
         android:layout_alignParentEnd="true"
         android:layout_margin="16dp"
         android:gravity="center"
-        android:background="@color/buttonColor"
+        android:background="@color/secondaryColor"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="342dp"
-        android:text="Jobs"
-        android:textColor="@color/accentColor"
+        android:text="Jobs We provide"
+        android:textColor="#493E3E"
         android:textSize="24sp" />
 
     <androidx.recyclerview.widget.RecyclerView

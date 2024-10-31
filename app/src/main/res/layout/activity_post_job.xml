@@ -1,57 +1,170 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".EmployerDashBoard.PostJobActivity">
 
     <LinearLayout
+        android:id="@+id/main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="16dp">
 
-        <EditText
-            android:id="@+id/jobTitleEditText"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Job Title"
-            android:padding="10dp"
-            />
+            android:hint="Job Title">
 
-        <EditText
-            android:id="@+id/jobLocationEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Job Location"
-            android:padding="10dp"
-            />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/jobTitleEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/jobStatusEditText"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Job Status"
-            android:padding="10dp"
-            />
+            android:hint="Role">
 
-        <EditText
-            android:id="@+id/jobSalaryEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Salary"
-            android:padding="10dp"
-            />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/jobRoleEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/jobExperienceEditText"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Experience Needed"
-            android:padding="10dp"
-            />
+            android:hint="Location">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/jobLocationEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Status">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/jobStatusEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Salary">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/jobSalaryEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Experience Needed">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/jobExperienceEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Description">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/jobDescriptionEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:inputType="textMultiLine"
+                android:lines="3"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Job Type (e.g., Full-time)">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/jobTypeEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Qualifications">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/jobQualificationsEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:inputType="textMultiLine"
+                android:lines="2"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Responsibilities">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/jobResponsibilitiesEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:inputType="textMultiLine"
+                android:lines="3"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Benefits">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/jobBenefitsEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:inputType="textMultiLine"
+                android:lines="2"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Application Deadline (e.g., YYYY-MM-DD)">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/jobApplicationDeadlineEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:inputType="date"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/postJobButton"
@@ -60,7 +173,7 @@
             android:text="Post Job"
             android:background="@color/black"
             android:textColor="@android:color/white"
-            android:layout_marginTop="20dp"/>
-    </LinearLayout>
+            android:layout_marginTop="20dp" />
 
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>
