@@ -61,7 +61,7 @@ class JobAdapter(
 
     private fun deleteJob(jobId: String) {
         val database = FirebaseDatabase.getInstance().reference
-        database.child("jobs").child("2").child(jobId).removeValue()
+        database.child("jobs").child("3").child(jobId).removeValue()
             .addOnSuccessListener {
                 // Optionally notify the user about successful deletion
                 Toast.makeText(fragment.context, "Job deleted successfully", Toast.LENGTH_SHORT).show()

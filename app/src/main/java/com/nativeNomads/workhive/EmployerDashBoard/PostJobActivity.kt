@@ -75,7 +75,7 @@ class PostJobActivity : AppCompatActivity() {
             )
         ) return
 
-        val userId ="2"  // Replace with Firebase UID or default
+        val userId ="3"  // Replace with Firebase UID or default
         if (userId.isEmpty()) {
             Toast.makeText(this, "User not logged in", Toast.LENGTH_SHORT).show()
             return

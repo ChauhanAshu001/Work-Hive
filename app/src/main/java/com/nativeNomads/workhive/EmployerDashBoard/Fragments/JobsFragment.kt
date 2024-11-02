@@ -24,7 +24,7 @@ class JobsFragment : Fragment() {
     private lateinit var jobAdapter: JobAdapter
     private val jobList = mutableListOf<Job>()
     private val database: DatabaseReference = FirebaseDatabase.getInstance().reference
-    private val userId = "2"
+    private val userId = "3"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

@@ -26,7 +26,7 @@ class CompleteProfileActivity : AppCompatActivity() {
 
             if (companyName.isNotEmpty()) {
                 // Assuming you are using Firebase Realtime Database to store the company name
-                val userId = "2"
+                val userId = "3"
                 val database = FirebaseDatabase.getInstance().reference
 
                 // Store the company name under the userId

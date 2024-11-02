@@ -25,7 +25,7 @@ class ApplicationsFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_applications, container, false)
 
         // Initialize RecyclerView
-        applicationRecyclerView = view.findViewById(R.id.applicationsRecyclerView)
+        applicationRecyclerView = view.findViewById(R.id.acceptedInvitationsRecyclerView)
         applicationRecyclerView.layoutManager = LinearLayoutManager(context)
 
         // Sample data for testing
