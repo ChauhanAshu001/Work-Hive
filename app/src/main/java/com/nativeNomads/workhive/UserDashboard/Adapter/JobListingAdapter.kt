@@ -33,7 +33,6 @@ class JobListingAdapter(
         holder.textViewCompanyName.text = companyName[position]
         holder.textViewJobTitle.text = jobTitle[position]
 
-        // Set up the click listener for the "More Info" button
         holder.moreInfo.setOnClickListener {
             val intent = Intent(context, JobInfo::class.java)
             context.startActivity(intent)

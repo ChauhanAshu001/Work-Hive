@@ -1,97 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/background_layout"
+    app:layoutDescription="@xml/fragment_applications_scene2"
     tools:context=".EmployerDashBoard.Fragments.ApplicationsFragment">
 
     <TextView
         android:id="@+id/homeTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:fontFamily="@font/raleway_semibold"
+        android:gravity="center"
         android:text="Welcome to Job Portal"
+        android:textColor="@color/black"
         android:textSize="28sp"
         android:textStyle="bold"
-        android:textColor="@color/black"
-        android:layout_alignParentTop="true"
-        android:layout_margin="8dp" />
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/acceptedInvitationsTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Accepted Invitations"
+        android:layout_margin="8dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="serif-monospace"
+        android:text="Applications"
+        android:textColor="@color/primaryColor"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:layout_margin="8dp"
-        android:textColor="@color/primaryColor"
-        android:layout_marginTop="32dp"
-        android:layout_below="@id/homeTitle" />
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/homeTitle" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/acceptedInvitationsRecyclerView"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        tools:listitem="@layout/item_application"
-        android:layout_below="@id/acceptedInvitationsTitle"
         android:layout_marginTop="16dp"
-        android:padding="8dp" />
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/acceptedInvitationsTitle"
+        tools:listitem="@layout/item_application" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/viewAcceptedInvitationsCard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true"
         android:layout_margin="16dp"
+        android:padding="16dp"
         app:cardBackgroundColor="@color/primaryColor"
         app:cardCornerRadius="16dp"
         app:cardElevation="4dp"
-        android:padding="16dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
             android:id="@+id/expandableLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text="View All Accepted Invitations"
-                android:textSize="18sp"
                 android:textColor="@android:color/white"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="4dp"
                 android:text="Tap here to see your accepted job invitations"
-                android:textSize="14sp"
                 android:textColor="@android:color/white"
-                android:layout_marginTop="4dp" />
-
-            <!-- Hidden expanded view -->
-            <LinearLayout
-                android:id="@+id/expandedContent"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                android:orientation="vertical"
-                android:layout_marginTop="8dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Here are your accepted job invitations."
-                    android:textColor="@android:color/white"
-                    android:textSize="14sp" />
-
-                <!-- Additional content can be added here -->
-            </LinearLayout>
+                android:textSize="14sp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-</RelativeLayout>
+</androidx.constraintlayout.motion.widget.MotionLayout>

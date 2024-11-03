@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -10,32 +9,63 @@
     tools:context=".EmployerDashBoard.CompleteProfileActivity">
 
     <TextView
+        android:id="@+id/profileTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Complete Your Profile"
         android:textSize="24sp"
-        android:id="@+id/profileTitle"
         android:textStyle="bold"
         android:layout_marginBottom="24dp"
-        android:layout_centerHorizontal="true" /> <!-- Centered horizontally -->
+        android:layout_centerHorizontal="true" />
 
-    <EditText
-        android:id="@+id/companyEditText"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/employerNameInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Company Name"
-        android:padding="10dp"
+        android:layout_below="@id/profileTitle"
         android:layout_marginBottom="16dp"
-        android:inputType="text"
-        android:layout_below="@id/profileTitle" /> <!-- Added to ensure proper positioning -->
+        app:hintEnabled="true"
+        android:hint="Employer Name">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/employerNameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/companyInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/employerNameInputLayout"
+        android:layout_marginBottom="16dp"
+        app:hintEnabled="true"
+        android:hint="Company Name">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/companyEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/companyImageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/companyInputLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/ic_image" />
 
     <Button
         android:id="@+id/completeButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Complete Profile"
+        android:layout_below="@id/companyImageView"
         android:layout_marginTop="20dp"
-        android:textColor="@android:color/white"
-        android:layout_below="@id/companyEditText" /> <!-- Positioned below EditText -->
+        android:textColor="@android:color/white" />
 
 </RelativeLayout>

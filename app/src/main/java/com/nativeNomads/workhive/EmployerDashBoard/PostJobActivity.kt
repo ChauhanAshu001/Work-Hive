@@ -81,8 +81,9 @@ class PostJobActivity : AppCompatActivity() {
             return
         }
 
-        database.child("companies").child(userId).child("companyName").get().addOnSuccessListener { snapshot ->
-            val companyName = snapshot.value?.toString() ?: "Unknown Company"
+        database.child("companies").child(userId).get().addOnSuccessListener { snapshot ->
+            val companyName = snapshot.child("companyName").value?.toString() ?: "Unknown Company"
+            val imageUrl = snapshot.child("imageUrl").value.toString()
 
             val jobId = database.child("jobs").push().key ?: return@addOnSuccessListener
             val job = Job(
@@ -100,7 +101,8 @@ class PostJobActivity : AppCompatActivity() {
                 jobQualifications,
                 jobResponsibilities,
                 jobBenefits,
-                jobApplicationDeadline
+                jobApplicationDeadline,
+                imageUrl
             )
 
             // Save job to Realtime Database

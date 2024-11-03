@@ -3,20 +3,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_layout"
     tools:context=".EmployerDashBoard.Fragments.JobsFragment">
 
     <TextView
         android:id="@+id/jobsTitle"
         android:layout_width="wrap_content"
+        android:fontFamily="@font/raleway_semibold"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
+        android:backgroundTint="#CCCBCB"
         android:layout_margin="16dp"
-        android:gravity="center"
-        android:background="@color/secondaryColor"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="342dp"
+        android:background="#FFFFFF"
+        android:gravity="center"
         android:text="Jobs We provide"
         android:textColor="#493E3E"
         android:textSize="24sp" />
