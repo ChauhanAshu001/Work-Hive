@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/employee_navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.nativeNomads.workhive.UserDashboard.Fragments.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/profileFragmentEmployee"
+        android:name="com.nativeNomads.workhive.UserDashboard.Fragments.ProfileFragment"
+        android:label="fragment_profile_employee"
+        tools:layout="@layout/fragment_profile_employee" />
+    <fragment
+        android:id="@+id/bookmarkedFragment"
+        android:name="com.nativeNomads.workhive.UserDashboard.Fragments.BookmarkedFragment"
+        android:label="fragment_bookmarked"
+        tools:layout="@layout/fragment_bookmarked" />
+</navigation>

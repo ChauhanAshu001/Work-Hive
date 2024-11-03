@@ -38,11 +38,11 @@ class LoginActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_login)
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+//            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+//            insets
+//        }
 
         // Initialize Firebase Auth
 
@@ -119,9 +119,9 @@ class LoginActivity : AppCompatActivity() {
     private fun navigateToNextActivity(userType: String?) {
         // Check user type and navigate accordingly
         val intent = if (userType == "jobSeeker") {
-            Intent(this, EmployerActivity::class.java)
-        } else {
             Intent(this, MainActivity::class.java)
+        } else {
+            Intent(this, EmployerActivity::class.java)
         }
         startActivity(intent)
         finish()
@@ -139,13 +139,13 @@ class LoginActivity : AppCompatActivity() {
 
     private fun getUserType() {
         sharedPreferences=this.getSharedPreferences("saveUserType",Context.MODE_PRIVATE)
-        userType=sharedPreferences.getString("key userType",null)
+        userType= sharedPreferences.getString("key userType",null)
 
     }
 
     override fun onPause() {
         super.onPause()
-        saveUserType(userType.toString())
+        userType?.let{saveUserType(it)}
     }
 
     override fun onResume() {
