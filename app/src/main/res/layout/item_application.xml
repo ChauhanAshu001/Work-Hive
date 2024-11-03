@@ -1,4 +1,3 @@
-<!-- item_application.xml -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -6,14 +5,14 @@
     android:padding="12dp"
     android:background="@color/cardBackgroundColor"
     android:layout_marginBottom="8dp"
-    android:elevation="2dp">
+    android:elevation="4dp">
 
     <TextView
         android:id="@+id/applicantName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="John Doe"
-        android:textSize="18sp"
+        android:textSize="22sp"
         android:textStyle="bold"
         android:textColor="@color/primaryColor" />
 
@@ -22,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Position: Software Engineer"
-        android:textSize="14sp"
+        android:textSize="16sp"
         android:textColor="@color/textColorSecondary"
         android:layout_marginTop="4dp" />
 
@@ -31,7 +30,57 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Status: Under Review"
-        android:textSize="14sp"
+        android:visibility="gone"
+        android:textSize="16sp"
         android:textColor="@color/accentColor"
         android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/applicationDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Applied on: Nov 1, 2024"
+        android:textSize="14sp"
+        android:textColor="@color/textColorSecondary"
+        android:layout_marginTop="4dp" />
+
+    <TextView
+        android:id="@+id/applicationNotes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Notes: Strong skills in Java and Python."
+        android:textSize="14sp"
+        android:textColor="@color/textColorSecondary"
+        android:layout_marginTop="4dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        android:gravity="end">
+
+        <ImageView
+            android:id="@+id/imageAccept"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_profile"
+            android:contentDescription="Accept"
+            android:layout_marginEnd="8dp"
+            android:padding="8dp"
+            android:background="@drawable/extraordinary_background"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <ImageView
+            android:id="@+id/imageReject"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_delete"
+            android:contentDescription="Reject"
+            android:padding="8dp"
+            android:background="@drawable/extraordinary_background"
+            android:clickable="true"
+            android:focusable="true" />
+    </LinearLayout>
 </LinearLayout>

@@ -9,11 +9,17 @@
         android:id="@+id/jobsTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Jobs"
-        android:textSize="24sp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
         android:layout_margin="16dp"
-        android:textColor="@color/black"
-        android:layout_alignParentTop="true" />
+        android:gravity="center"
+        android:background="@color/secondaryColor"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="342dp"
+        android:text="Jobs We provide"
+        android:textColor="#493E3E"
+        android:textSize="24sp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/jobsRecyclerView"

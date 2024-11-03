@@ -1,34 +1,34 @@
 package com.nativeNomads.workhive.EmployerDashBoard.Fragments
 
+
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.nativeNomads.workhive.EmployerDashBoard.CompleteProfileActivity
+import com.nativeNomads.workhive.EmployerDashBoard.PostJobActivity
 import com.nativeNomads.workhive.R
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [ProfileFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ProfileFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var profileImage: ImageView
+    private lateinit var profileName: TextView
+    private lateinit var profileCompany: TextView
+    private lateinit var completeProfileButton: Button
+    private lateinit var editProfileButton: Button
+    private lateinit var postJobButton: Button
+
+    private lateinit var database: DatabaseReference
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,23 +38,52 @@ class ProfileFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_profile, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ProfileFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ProfileFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // Initialize views
+        profileImage = view.findViewById(R.id.profileImage)
+        profileName = view.findViewById(R.id.profileName)
+        profileCompany = view.findViewById(R.id.profileCompany)
+        completeProfileButton = view.findViewById(R.id.completeProfileButton)
+        editProfileButton = view.findViewById(R.id.editProfileButton)
+        postJobButton = view.findViewById(R.id.postJobButton)
+
+        // Initialize Firebase
+        auth = FirebaseAuth.getInstance()
+        database = FirebaseDatabase.getInstance().reference
+
+        // Load user profile information
+        loadUserProfile()
+
+        // Set up button click listeners
+        completeProfileButton.setOnClickListener {
+            // Navigate to CompleteProfileActivity
+            val intent = Intent(requireContext(), CompleteProfileActivity::class.java)
+            startActivity(intent)
+        }
+
+
+        postJobButton.setOnClickListener {
+            // Navigate to PostJobActivity
+            val intent = Intent(requireContext(), PostJobActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    private fun loadUserProfile() {
+        val userId = auth.currentUser?.uid
+        if (userId != null) {
+            database.child("users").child(userId).get().addOnSuccessListener { dataSnapshot ->
+                if (dataSnapshot.exists()) {
+                    val name = dataSnapshot.child("name").value.toString()
+                    val company = dataSnapshot.child("company").value.toString()
+                    profileName.text = name
+                    profileCompany.text = company
                 }
+            }.addOnFailureListener {
+                Toast.makeText(requireContext(), "Failed to load profile", Toast.LENGTH_SHORT).show()
             }
+        }
     }
 }

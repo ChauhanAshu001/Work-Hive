@@ -3,24 +3,95 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/background_layout"
     tools:context=".EmployerDashBoard.Fragments.ApplicationsFragment">
 
     <TextView
-        android:id="@+id/applicationsTitle"
+        android:id="@+id/homeTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Job Applications"
-        android:textSize="24sp"
-        android:layout_margin="16dp"
+        android:text="Welcome to Job Portal"
+        android:textSize="28sp"
+        android:textStyle="bold"
         android:textColor="@color/black"
-        android:layout_alignParentTop="true" />
+        android:layout_alignParentTop="true"
+        android:layout_margin="8dp" />
+
+    <TextView
+        android:id="@+id/acceptedInvitationsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Accepted Invitations"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_margin="8dp"
+        android:textColor="@color/primaryColor"
+        android:layout_marginTop="32dp"
+        android:layout_below="@id/homeTitle" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/applicationsRecyclerView"
+        android:id="@+id/acceptedInvitationsRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/applicationsTitle"
-        android:layout_marginTop="8dp"
-        android:padding="16dp" />
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/item_application"
+        android:layout_below="@id/acceptedInvitationsTitle"
+        android:layout_marginTop="16dp"
+        android:padding="8dp" />
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/viewAcceptedInvitationsCard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_margin="16dp"
+        app:cardBackgroundColor="@color/primaryColor"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="4dp"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:id="@+id/expandableLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="View All Accepted Invitations"
+                android:textSize="18sp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tap here to see your accepted job invitations"
+                android:textSize="14sp"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="4dp" />
+
+            <!-- Hidden expanded view -->
+            <LinearLayout
+                android:id="@+id/expandedContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:orientation="vertical"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Here are your accepted job invitations."
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp" />
+
+                <!-- Additional content can be added here -->
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 </RelativeLayout>
