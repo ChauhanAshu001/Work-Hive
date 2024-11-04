@@ -1,0 +1,22 @@
+<!-- res/values/styles.xml -->
+<resources>
+    <!-- Style for horizontal RecyclerView items -->
+    <style name="HorizontalRecyclerViewItem">
+        <!-- Padding around the item -->
+        <item name="android:padding">8dp</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:background">@drawable/boder_search</item>
+        <!-- Text appearance for the title, if any -->
+        <item name="android:textColor">#333333</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <!-- Set width and height -->
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <!-- Elevation for a shadow effect -->
+        <item name="android:elevation">4dp</item>
+        <!-- Rounded corners -->
+        <item name="android:shape">rectangle</item>
+        <item name="android:radius">8dp</item>
+    </style>
+</resources>

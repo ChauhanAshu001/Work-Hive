@@ -15,5 +15,6 @@ data class Job(
     val qualifications: String = "",
     val responsibilities: String = "",
     val benefits: String = "",
-    val applicationDeadline: String = ""
+    val applicationDeadline: String = "",
+    val companyImage: String = ""
 )
