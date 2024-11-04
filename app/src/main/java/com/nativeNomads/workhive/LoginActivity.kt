@@ -57,6 +57,7 @@ class LoginActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         // Check if user is already logged in
         val currentUser = auth.currentUser
+
         userType= getUserType().toString()
         if (currentUser != null) {
 
