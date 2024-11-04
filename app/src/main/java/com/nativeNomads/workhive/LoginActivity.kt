@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.nativeNomads.workhive
 
 import android.app.Activity
@@ -9,8 +11,6 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.AuthCredential
@@ -26,7 +26,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var googleSignInClient: GoogleSignInClient
     private lateinit var auth: FirebaseAuth
     private var userType: String? = null // Class property to store userType
-    lateinit var sharedPreferences: SharedPreferences
+    private lateinit var sharedPreferences: SharedPreferences
 
 
     companion object {
@@ -52,32 +52,35 @@ class LoginActivity : AppCompatActivity() {
             .requestEmail()
             .build()
 
-        googleSignInClient = GoogleSignIn.getClient(this, gso)
+        googleSignInClient = GoogleSignIn.getClient(this@LoginActivity, gso)
 
         auth = FirebaseAuth.getInstance()
         // Check if user is already logged in
         val currentUser = auth.currentUser
+        userType= getUserType().toString()
         if (currentUser != null) {
 
             navigateToNextActivity(userType)
         }
 
         // Set click listeners for the buttons
-        findViewById<Button>(R.id.button3).setOnClickListener {
+        findViewById<Button>(R.id.buttonEmployee).setOnClickListener {
             userType = "jobSeeker" // Set userType
             signInUser()
         }
-        findViewById<Button>(R.id.button).setOnClickListener {
+        findViewById<Button>(R.id.buttonEmployer).setOnClickListener {
             userType = "employer" // Set userType
             signInUser()
         }
     }
+
 
     private fun signInUser() {
         val signInIntent = googleSignInClient.signInIntent
         startActivityForResult(signInIntent, RC_SIGN_IN)
     }
 
+    @Deprecated("This method has been deprecated in favor of using the Activity Result API\n      which brings increased type safety via an {@link ActivityResultContract} and the prebuilt\n      contracts for common intents available in\n      {@link androidx.activity.result.contract.ActivityResultContracts}, provides hooks for\n      testing, and allow receiving results in separate, testable classes independent from your\n      activity. Use\n      {@link #registerForActivityResult(ActivityResultContract, ActivityResultCallback)}\n      with the appropriate {@link ActivityResultContract} and handling the result in the\n      {@link ActivityResultCallback#onActivityResult(Object) callback}.")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == RC_SIGN_IN) {
@@ -137,10 +140,10 @@ class LoginActivity : AppCompatActivity() {
         Toast.makeText(applicationContext,"You are saved as  $userType",Toast.LENGTH_SHORT).show()
     }
 
-    private fun getUserType() {
+    private fun getUserType(): String? {
         sharedPreferences=this.getSharedPreferences("saveUserType",Context.MODE_PRIVATE)
         userType= sharedPreferences.getString("key userType",null)
-
+        return userType
     }
 
     override fun onPause() {

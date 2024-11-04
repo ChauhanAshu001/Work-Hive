@@ -20,4 +20,9 @@
         android:name="com.nativeNomads.workhive.UserDashboard.Fragments.BookmarkedFragment"
         android:label="fragment_bookmarked"
         tools:layout="@layout/fragment_bookmarked" />
+    <fragment
+        android:id="@+id/chats"
+        android:name="com.nativeNomads.workhive.UserDashboard.Fragments.Chats"
+        android:label="fragment_chats"
+        tools:layout="@layout/fragment_chats" />
 </navigation>

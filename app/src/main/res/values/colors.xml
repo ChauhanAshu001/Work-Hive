@@ -18,6 +18,8 @@
     <color name="cardBackgroundColor">#FFFFFF</color>
     <color name="buttonColor">#6200EA</color>
     <color name="dividerColor">#E0E0E0</color>
+    <color name="skyBlue">#0096FF</color>
+    <color name="periwinkle">#CCCCFF</color>
 
 
 </resources>

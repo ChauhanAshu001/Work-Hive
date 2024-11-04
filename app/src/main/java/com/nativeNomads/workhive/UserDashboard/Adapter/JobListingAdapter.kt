@@ -21,7 +21,7 @@ class JobListingAdapter(
         var textViewCompanyName: TextView = itemView.findViewById(R.id.companyName)
         var textViewJobTitle: TextView = itemView.findViewById(R.id.jobDescribe)
         var cardView: CardView = itemView.findViewById(R.id.cardView)
-        var moreInfo: Button = itemView.findViewById(R.id.more)
+        var bookmarkButton:Button =itemView.findViewById(R.id.bookmarkButton)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -34,7 +34,7 @@ class JobListingAdapter(
         holder.textViewJobTitle.text = jobTitle[position]
 
         // Set up the click listener for the "More Info" button
-        holder.moreInfo.setOnClickListener {
+        holder.cardView.setOnClickListener {
             val intent = Intent(context, JobInfo::class.java)
             context.startActivity(intent)
         }
