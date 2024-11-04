@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_layout"
     app:layoutDescription="@xml/fragment_home_scene"
     tools:context=".UserDashboard.Fragments.HomeFragment">
 
@@ -36,7 +37,7 @@
         android:id="@+id/recyclerViewRecommendedJobs"
         style="@style/HorizontalRecyclerViewItem"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
+        android:layout_height="0dp"
         android:layout_marginTop="8dp"
         android:orientation="horizontal"
         android:visibility="visible"
@@ -44,7 +45,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/spinnerFilter"
-        tools:listitem="@layout/item_job" />
+        tools:listitem="@layout/job_listing" />
 
     <!-- Vertical RecyclerView for job listings -->
     <androidx.recyclerview.widget.RecyclerView

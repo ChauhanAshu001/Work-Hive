@@ -7,21 +7,22 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.nativeNomads.workhive.EmployerDashBoard.Data.Job
 import com.nativeNomads.workhive.R
 
 class JobListingAdapter(
-    var companyName: ArrayList<String>,
-    var jobTitle: ArrayList<String>,
-    var context: Context
+    private var jobs: MutableList<Job>,
+    private val context: Context
 ) : RecyclerView.Adapter<JobListingAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var textViewCompanyName: TextView = itemView.findViewById(R.id.companyName)
-        var textViewJobTitle: TextView = itemView.findViewById(R.id.jobDescribe)
-        var cardView: CardView = itemView.findViewById(R.id.cardView)
-        var moreInfo: Button = itemView.findViewById(R.id.more)
+        val textViewCompanyName: TextView = itemView.findViewById(R.id.companyName)
+        val textViewJobTitle: TextView = itemView.findViewById(R.id.jobTitle)
+        val textViewJobLocation: TextView = itemView.findViewById(R.id.jobLocation)
+        val textViewJobType: TextView = itemView.findViewById(R.id.jobType)
+        val textViewJobSalary: TextView = itemView.findViewById(R.id.jobSalary)
+        val moreInfo: Button = itemView.findViewById(R.id.more)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -30,16 +31,22 @@ class JobListingAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.textViewCompanyName.text = companyName[position]
-        holder.textViewJobTitle.text = jobTitle[position]
+        val job = jobs[position]
+        holder.textViewCompanyName.text = job.companyName
+        holder.textViewJobTitle.text = job.role
+        holder.textViewJobLocation.text = job.location
+        holder.textViewJobType.text = job.jobType
+        holder.textViewJobSalary.text = job.salary
+
 
         holder.moreInfo.setOnClickListener {
             val intent = Intent(context, JobInfo::class.java)
+            intent.putExtra("JOB_ID", job.jobId)
             context.startActivity(intent)
         }
     }
 
     override fun getItemCount(): Int {
-        return companyName.size
+        return jobs.size
     }
 }
