@@ -49,7 +49,7 @@
 
     <!-- Vertical RecyclerView for job listings -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewJobs"
+        android:id="@+id/recyclerViewBookmarkedJobs"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="8dp"
