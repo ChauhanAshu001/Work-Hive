@@ -17,7 +17,7 @@
         android:padding="12dp">
 
         <TextView
-            android:id="@+id/companyName"
+            android:id="@+id/bookmarkedCompanyName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poor_story"
@@ -27,10 +27,10 @@
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/jobTitle" />
+            app:layout_constraintEnd_toStartOf="@id/bookmarkedJobTitle" />
 
         <TextView
-            android:id="@+id/jobTitle"
+            android:id="@+id/bookmarkedJobTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poor_story"
@@ -38,61 +38,49 @@
             android:textColor="@color/black2"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@id/companyName"
+            app:layout_constraintStart_toEndOf="@id/bookmarkedCompanyName"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
-            android:id="@+id/jobLocation"
+            android:id="@+id/bookmarkedJobLocation"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-        android:drawablePadding="4dp"
-        android:text="Location: New York"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintTop_toBottomOf="@id/companyName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/jobType" />
-
-        <TextView
-            android:id="@+id/jobType"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-        android:drawablePadding="4dp"
-        android:text="Type: Full-time"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintTop_toBottomOf="@id/jobTitle"
-        app:layout_constraintStart_toEndOf="@id/jobLocation"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-        <TextView
-            android:id="@+id/jobSalary"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-        android:drawablePadding="4dp"
-        android:text="Salary: $60,000"
-        android:textColor="@color/black2"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/jobLocation"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-        <Button
-            android:id="@+id/more"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:backgroundTint="@color/accentColor"
-            android:fontFamily="@font/poor_story"
-            android:text="More Info"
-            android:textColor="@android:color/white"
+            android:drawablePadding="4dp"
+            android:text="Location: New York"
+            android:textColor="@color/black"
             android:textSize="14sp"
-            app:layout_constraintTop_toBottomOf="@id/jobSalary"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/bookmarkedCompanyName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/bookmarkedJobType" />
+
+        <TextView
+            android:id="@+id/bookmarkedJobType"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:drawablePadding="4dp"
+            android:text="Type: Full-time"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/bookmarkedJobTitle"
+            app:layout_constraintStart_toEndOf="@id/bookmarkedJobLocation"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/bookmarkedJobSalary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:drawablePadding="4dp"
+            android:text="Salary: $60,000"
+            android:textColor="@color/black2"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/bookmarkedJobLocation"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

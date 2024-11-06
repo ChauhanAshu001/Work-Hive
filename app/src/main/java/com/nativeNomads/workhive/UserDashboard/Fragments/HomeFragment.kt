@@ -21,6 +21,8 @@ class HomeFragment : Fragment() {
     private lateinit var adapter: JobListingAdapter
     private lateinit var recyclerView: RecyclerView
     private val jobs = mutableListOf<Job>()
+
+
     private val database: FirebaseDatabase = FirebaseDatabase.getInstance()
     private val reference: DatabaseReference = database.reference.child("jobs")
 
@@ -37,11 +39,11 @@ class HomeFragment : Fragment() {
 
         val recyclerViewRecommendedJobs = view.findViewById<RecyclerView>(R.id.recyclerViewRecommendedJobs)
         recyclerViewRecommendedJobs.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        recyclerViewRecommendedJobs.adapter = JobListingAdapter(jobs, requireContext())
+        recyclerViewRecommendedJobs.adapter = JobListingAdapter(jobs, requireActivity())
 
-        recyclerView = view.findViewById(R.id.recyclerViewJobs)
+        recyclerView = view.findViewById(R.id.recyclerViewBookmarkedJobs)
         recyclerView.layoutManager = LinearLayoutManager(context)
-        adapter = JobListingAdapter(jobs, requireContext())
+        adapter = JobListingAdapter(jobs, requireActivity())
         recyclerView.adapter = adapter
 
 
@@ -52,6 +54,7 @@ class HomeFragment : Fragment() {
         reference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 jobs.clear()
+
 
                 for (companySnapshot in snapshot.children) {
                     for (jobSnapshot in companySnapshot.children) {
