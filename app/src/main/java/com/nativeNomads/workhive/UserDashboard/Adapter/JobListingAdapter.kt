@@ -61,6 +61,7 @@ class JobListingAdapter(
             intent.putExtra("COMPANY_DESCRIPTION", job.description)
             intent.putExtra("JOB_BENEFITS", job.benefits)
             intent.putExtra("JOB_TITLE",job.title)
+            intent.putExtra("COMPANY_ID",job.userId)
 
             context.startActivity(intent)
         }

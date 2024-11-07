@@ -74,7 +74,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="View All Accepted Invitations"
+                android:text="View All Hired People"
                 android:textColor="@android:color/white"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -84,7 +84,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="4dp"
-                android:text="Tap here to see your accepted job invitations"
+                android:text="Tap here to see Hired people"
                 android:textColor="@android:color/white"
                 android:textSize="14sp" />
         </LinearLayout>
