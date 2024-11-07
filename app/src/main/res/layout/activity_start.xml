@@ -47,8 +47,9 @@
         android:fontFamily="@font/raleway_bold"
         android:text="Let's Start"
         android:textColor="@color/white"
+        android:shadowColor="@color/black"
         android:textSize="@dimen/_18ssp"
-        app:cornerRadius="10dp"
+        app:cornerRadius="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:rippleColor="#50FFFFFF" />

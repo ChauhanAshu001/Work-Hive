@@ -8,6 +8,7 @@
     android:background="@color/black2"
     tools:context=".LoginActivity">
 
+
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile_image"
         android:layout_width="@dimen/_159sdp"

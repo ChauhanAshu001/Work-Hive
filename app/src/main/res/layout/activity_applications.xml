@@ -28,15 +28,15 @@
             android:orientation="horizontal"
             android:padding="16dp">
 
-            <ImageView
-                android:id="@+id/profileImage"
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:id="@+id/profile_image"
                 android:src="@drawable/ic_application"
+                app:civ_border_color="@color/black"
+                app:civ_border_width="2dp"
                 android:contentDescription="Profile Image"
-                android:scaleType="centerCrop"
-                android:background="@drawable/extraordinary_background"
-                android:layout_marginEnd="16dp" />
+                android:layout_marginEnd="16dp"
+                android:layout_height="80dp"/>
 
             <TextView
                 android:id="@+id/textName"
