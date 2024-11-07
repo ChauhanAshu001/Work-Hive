@@ -12,11 +12,14 @@
         android:id="@+id/profileTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="24dp"
+        android:fontFamily="@font/raleway_bold"
         android:text="Complete Your Profile"
         android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="24dp"
-        android:layout_centerHorizontal="true" />
+        android:textStyle="bold" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/employerNameInputLayout"
@@ -30,6 +33,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/employerNameEditText"
             android:layout_width="match_parent"
+            android:fontFamily="@font/inter_semibold"
             android:layout_height="wrap_content"
             android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -45,6 +49,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/companyEditText"
+            android:fontFamily="@font/inter_semibold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text" />
@@ -63,6 +68,7 @@
         android:id="@+id/completeButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_semibold"
         android:text="Complete Profile"
         android:layout_below="@id/companyImageView"
         android:layout_marginTop="20dp"
