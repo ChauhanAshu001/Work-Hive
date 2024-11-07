@@ -45,11 +45,11 @@ class JobsFragment : Fragment() {
     }
 
     private fun fetchJobs() {
-        // Use the userId to fetch jobs for the specific user
+
         database.child("jobs").child(userId).addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                jobList.clear() // Clear existing job list
-                if (snapshot.exists()) { // Check if snapshot has children
+                jobList.clear()
+                if (snapshot.exists()) {
                     for (jobSnapshot in snapshot.children) {
                         val job = jobSnapshot.getValue(Job::class.java)
                         if (job != null) {

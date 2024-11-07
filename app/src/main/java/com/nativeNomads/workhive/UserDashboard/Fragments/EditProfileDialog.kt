@@ -48,7 +48,6 @@ class EditProfileDialog : DialogFragment() {
             if (userId != null) {
                 val databaseRef = FirebaseDatabase.getInstance().getReference("users").child(userId)
 
-                // Create a map for the updated profile data
                 val updatedData = mapOf(
                     "name" to name.text.toString(),
                     "experience" to experience.text.toString(),
@@ -61,7 +60,7 @@ class EditProfileDialog : DialogFragment() {
 
                         dialog?.dismiss()
                     } else {
-                        // Handle any errors (you could show a Toast here)
+
                     }
                 }
             }

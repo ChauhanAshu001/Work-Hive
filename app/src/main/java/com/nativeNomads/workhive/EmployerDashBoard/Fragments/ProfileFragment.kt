@@ -3,6 +3,7 @@ package com.nativeNomads.workhive.EmployerDashBoard.Fragments
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -46,44 +47,47 @@ class ProfileFragment : Fragment() {
         profileName = view.findViewById(R.id.profileName)
         profileCompany = view.findViewById(R.id.profileCompany)
         completeProfileButton = view.findViewById(R.id.completeProfileButton)
-        editProfileButton = view.findViewById(R.id.editProfileButton)
         postJobButton = view.findViewById(R.id.postJobButton)
 
-        // Initialize Firebase
         auth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance().reference
 
-        // Load user profile information
         loadUserProfile()
 
-        // Set up button click listeners
         completeProfileButton.setOnClickListener {
-            // Navigate to CompleteProfileActivity
+
             val intent = Intent(requireContext(), CompleteProfileActivity::class.java)
             startActivity(intent)
         }
 
 
         postJobButton.setOnClickListener {
-            // Navigate to PostJobActivity
             val intent = Intent(requireContext(), PostJobActivity::class.java)
             startActivity(intent)
         }
     }
 
     private fun loadUserProfile() {
-        val userId = auth.currentUser?.uid
+        val userId = "3"
         if (userId != null) {
-            database.child("users").child(userId).get().addOnSuccessListener { dataSnapshot ->
+            database.child("companies").child(userId).get().addOnSuccessListener { dataSnapshot ->
                 if (dataSnapshot.exists()) {
-                    val name = dataSnapshot.child("name").value.toString()
-                    val company = dataSnapshot.child("company").value.toString()
-                    profileName.text = name
-                    profileCompany.text = company
+                    val name = dataSnapshot.child("employerName").value?.toString()
+                    val company = dataSnapshot.child("companyName").value?.toString()
+
+                    profileName.text = name ?: "No name available"
+                    profileCompany.text = company ?: "No company information"
+                } else {
+                    Toast.makeText(requireContext(), "Profile data not found", Toast.LENGTH_SHORT).show()
                 }
             }.addOnFailureListener {
                 Toast.makeText(requireContext(), "Failed to load profile", Toast.LENGTH_SHORT).show()
             }
+        } else {
+            Toast.makeText(requireContext(), "User not authenticated", Toast.LENGTH_SHORT).show()
         }
     }
+
+
+
 }
