@@ -53,8 +53,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/viewAcceptedInvitationsCard"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
         android:layout_margin="16dp"
         android:padding="16dp"
         app:cardBackgroundColor="@color/primaryColor"
@@ -75,6 +75,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="View All Hired People"
+                android:fontFamily="@font/raleway_semibold"
                 android:textColor="@android:color/white"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -84,6 +85,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="4dp"
+                android:fontFamily="@font/raleway_semibold"
                 android:text="Tap here to see Hired people"
                 android:textColor="@android:color/white"
                 android:textSize="14sp" />

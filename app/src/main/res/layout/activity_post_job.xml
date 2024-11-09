@@ -26,6 +26,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/jobTitleEditText"
                     android:layout_width="match_parent"
+                    android:fontFamily="@font/raleway_semibold"
                     android:layout_height="wrap_content"
                     android:padding="10dp"/>
             </com.google.android.material.textfield.TextInputLayout>
@@ -38,6 +39,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/jobRoleEditText"
                     android:layout_width="match_parent"
+                    android:fontFamily="@font/raleway_semibold"
                     android:layout_height="wrap_content"
                     android:padding="10dp"/>
             </com.google.android.material.textfield.TextInputLayout>
@@ -50,6 +52,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/jobLocationEditText"
                     android:layout_width="match_parent"
+                    android:fontFamily="@font/raleway_semibold"
                     android:layout_height="wrap_content"
                     android:padding="10dp"/>
             </com.google.android.material.textfield.TextInputLayout>
@@ -62,6 +65,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/jobStatusEditText"
                     android:layout_width="match_parent"
+                    android:fontFamily="@font/raleway_semibold"
                     android:layout_height="wrap_content"
                     android:padding="10dp"/>
             </com.google.android.material.textfield.TextInputLayout>
@@ -75,6 +79,7 @@
                     android:id="@+id/jobSalaryEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway_semibold"
                     android:padding="10dp"/>
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -86,6 +91,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/jobExperienceEditText"
                     android:layout_width="match_parent"
+                    android:fontFamily="@font/raleway_semibold"
                     android:layout_height="wrap_content"
                     android:padding="10dp"/>
             </com.google.android.material.textfield.TextInputLayout>
@@ -99,6 +105,7 @@
                     android:id="@+id/jobDescriptionEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway_semibold"
                     android:padding="10dp"
                     android:inputType="textMultiLine"
                     android:lines="3"/>
@@ -112,6 +119,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/jobTypeEditText"
                     android:layout_width="match_parent"
+                    android:fontFamily="@font/raleway_semibold"
                     android:layout_height="wrap_content"
                     android:padding="10dp"/>
             </com.google.android.material.textfield.TextInputLayout>
@@ -124,6 +132,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/jobQualificationsEditText"
                     android:layout_width="match_parent"
+                    android:fontFamily="@font/raleway_semibold"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:inputType="textMultiLine"
@@ -140,6 +149,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
+                    android:fontFamily="@font/raleway_semibold"
                     android:inputType="textMultiLine"
                     android:lines="3"/>
             </com.google.android.material.textfield.TextInputLayout>
@@ -153,6 +163,7 @@
                     android:id="@+id/jobBenefitsEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway_semibold"
                     android:padding="10dp"
                     android:inputType="textMultiLine"
                     android:lines="2"/>
@@ -166,6 +177,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/jobApplicationDeadlineEditText"
                     android:layout_width="match_parent"
+                    android:fontFamily="@font/inter_bold"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:inputType="date"/>
