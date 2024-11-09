@@ -24,5 +24,18 @@
         android:id="@+id/chats"
         android:name="com.nativeNomads.workhive.UserDashboard.Fragments.Chats"
         android:label="fragment_chats"
-        tools:layout="@layout/fragment_chats" />
+        tools:layout="@layout/fragment_chats" >
+        <action
+            android:id="@+id/action_chats_to_connectFragment"
+            app:destination="@id/connectFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/connectFragment"
+        android:name="com.nativeNomads.workhive.UserDashboard.Fragments.ConnectFragment"
+        android:label="fragment_connect"
+        tools:layout="@layout/fragment_connect" >
+        <action
+            android:id="@+id/action_connectFragment_to_chats"
+            app:destination="@id/chats" />
+    </fragment>
 </navigation>

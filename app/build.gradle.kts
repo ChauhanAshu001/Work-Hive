@@ -61,4 +61,6 @@ dependencies {
     implementation("com.google.android.gms:play-services-auth:21.2.0")
     implementation ("com.github.bumptech.glide:glide:4.16.0")
 
+    implementation("com.github.ZEGOCLOUD:zego_uikit_prebuilt_call_android:+")    // Add this line to your module-level build.gradle file's dependencies, usually named [app].
+
 }

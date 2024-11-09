@@ -4,11 +4,18 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.nativeNomads.workhive.R
+import com.zegocloud.uikit.prebuilt.call.ZegoUIKitPrebuiltCallService
+import com.zegocloud.uikit.prebuilt.call.invite.ZegoUIKitPrebuiltCallInvitationConfig
+import com.zegocloud.uikit.prebuilt.call.invite.widget.ZegoSendCallInvitationButton
+import com.zegocloud.uikit.service.defines.ZegoUIKitUser
+import java.util.Collections
+
 
 class ApplicationsActivity : AppCompatActivity() {
     private lateinit var applicantName: TextView
@@ -80,6 +87,19 @@ class ApplicationsActivity : AppCompatActivity() {
             confirmApplicationButton.visibility = View.GONE
 
         }
+
+        val config = ZegoUIKitPrebuiltCallInvitationConfig()
+        ZegoUIKitPrebuiltCallService.init(application,AppConstants.appId,AppConstants.appSign,companyId,companyId,config)
+
+        val videoCallButton = findViewById<ZegoSendCallInvitationButton>(R.id.zegoSendCallInvitationButton)
+
+        videoCallButton.setIsVideoCall(true)
+        videoCallButton.setResourceID("zego_uikit_call")
+
+        videoCallButton.setInvitees(Collections.singletonList(ZegoUIKitUser(userId,userId)))
+
+
+
     }
 
     private fun updateApplicationStatus(newStatus: String) {

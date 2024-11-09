@@ -31,7 +31,7 @@ class EmployerActivity : AppCompatActivity() {
             }
             true
         }
-        bottomNav.selectedItemId = R.id.nav_applications // Default Fragment
+        bottomNav.selectedItemId = R.id.nav_applications 
     }
 
     private fun loadFragment(fragment: Fragment) {
