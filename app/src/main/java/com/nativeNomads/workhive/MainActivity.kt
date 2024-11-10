@@ -5,11 +5,10 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.nativeNomads.workhive.EmployerDashBoard.AppConstants
-import com.nativeNomads.workhive.UserDashboard.Fragments.ConnectFragment
-import com.nativeNomads.workhive.UserDashboard.Fragments.HomeFragment
-import com.nativeNomads.workhive.UserDashboard.Fragments.ProfileFragment
 import com.nativeNomads.workhive.databinding.ActivityMainBinding
 import com.zegocloud.uikit.prebuilt.call.ZegoUIKitPrebuiltCallService
 import com.zegocloud.uikit.prebuilt.call.invite.ZegoUIKitPrebuiltCallInvitationConfig
@@ -27,27 +26,14 @@ class MainActivity : AppCompatActivity() {
         mainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mainBinding.root)
 
-        findViewById<BottomNavigationView>(R.id.bottomNavigation).setOnNavigationItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.homeFragment -> openFragment(HomeFragment())
-                R.id.connect -> openFragment(ConnectFragment())
-                R.id.profileFragmentEmployee -> openFragment(ProfileFragment())
-            }
-            true
-        }
+        var navController=findNavController(R.id.fragmentContainer)
+        var bottomNavigation=findViewById<BottomNavigationView>(R.id.bottomNavigation)
 
-        findViewById<BottomNavigationView>(R.id.bottomNavigation).selectedItemId=R.id.homeFragment
-
-        // In dono line ko change mat karna video call ke liye hai
+        bottomNavigation.setupWithNavController(navController)
 
         val config = ZegoUIKitPrebuiltCallInvitationConfig()
         ZegoUIKitPrebuiltCallService.init(application,AppConstants.appId,AppConstants.appSign,userId,userId,config)
 
     }
 
-    private fun openFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragmentContainer, fragment)
-            .commit()
-    }
 }

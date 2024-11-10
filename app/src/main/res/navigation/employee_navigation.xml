@@ -16,7 +16,7 @@
         android:label="fragment_profile_employee"
         tools:layout="@layout/fragment_profile_employee" />
     <fragment
-        android:id="@+id/bookmarkedFragment"
+        android:id="@+id/bookmarked"
         android:name="com.nativeNomads.workhive.UserDashboard.Fragments.BookmarkedFragment"
         android:label="fragment_bookmarked"
         tools:layout="@layout/fragment_bookmarked" />
@@ -24,18 +24,10 @@
         android:id="@+id/chats"
         android:name="com.nativeNomads.workhive.UserDashboard.Fragments.Chats"
         android:label="fragment_chats"
-        tools:layout="@layout/fragment_chats" >
-        <action
-            android:id="@+id/action_chats_to_connectFragment"
-            app:destination="@id/connectFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_chats" />
     <fragment
-        android:id="@+id/connectFragment"
+        android:id="@+id/connect"
         android:name="com.nativeNomads.workhive.UserDashboard.Fragments.ConnectFragment"
         android:label="fragment_connect"
-        tools:layout="@layout/fragment_connect" >
-        <action
-            android:id="@+id/action_connectFragment_to_chats"
-            app:destination="@id/chats" />
-    </fragment>
+        tools:layout="@layout/fragment_connect" />
 </navigation>
